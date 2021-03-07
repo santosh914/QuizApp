@@ -16,7 +16,7 @@ class QuizApp extends JFrame implements ActionListener {
 
 	JLabel label;
 	JRadioButton radioButton[] = new JRadioButton[5];
-	JButton btnNext, btnMark for review;
+	JButton btnNext,Review;
 	ButtonGroup bg;
 	int count = 0, current = 0, x = 1, y = 1, now = 0;
 	int m[] = new int[10];
@@ -33,11 +33,11 @@ class QuizApp extends JFrame implements ActionListener {
 			bg.add(radioButton[i]);
 		}
 		btnNext = new JButton("Next");
-		btnMark for review = new JButton("Mark for review");
+		btnReview= new JButton("Review");
 		btnNext.addActionListener(this);
-		btnMark for review.addActionListener(this);
+		btnReview.addActionListener(this);
 		add(btnNext);
-		add(btnMark for review);
+		add(Review);
 		set();
 		label.setBounds(30, 40, 450, 20);
 		//radioButton[0].setBounds(50, 80, 200, 20);
@@ -46,7 +46,7 @@ class QuizApp extends JFrame implements ActionListener {
 		radioButton[2].setBounds(50, 140, 200, 20);
 		radioButton[3].setBounds(50, 170, 200, 20);
 		btnNext.setBounds(100, 240, 100, 30);
-		btnMark for review.setBounds(270, 240, 100, 30);
+		btnReview.setBounds(270, 240, 100, 30);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(null);
 		setLocation(250, 100);
@@ -63,11 +63,11 @@ class QuizApp extends JFrame implements ActionListener {
 			set();
 			if (current == 9) {
 				btnNext.setEnabled(false);
-				btnMark for review.setText("Result");
+				btnReview.setText("Result");
 			}
 		}
-		if (e.getActionCommand().equals("Mark for review")) {
-			JButton bk = new JButton("Mark for review" + x);
+		if (e.getActionCommand().equals("Review")) {
+			JButton bk = new JButton("Review" + x);
 			bk.setBounds(480, 20 + 30 * x, 100, 30);
 			add(bk);
 			bk.addActionListener(this);
@@ -76,12 +76,12 @@ class QuizApp extends JFrame implements ActionListener {
 			current++;
 			set();
 			if (current == 9)
-				btnMark for review.setText("Result");
+				btnReview.setText("Result");
 			setVisible(false);
 			setVisible(true);
 		}
 		for (int i = 0, y = 1; i < x; i++, y++) {
-			if (e.getActionCommand().equals("Mark for review" + y)) {
+			if (e.getActionCommand().equals("Review" + y)) {
 				if (check())
 					count = count + 1;
 				now = current;
